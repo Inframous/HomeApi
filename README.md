@@ -28,4 +28,5 @@ rest_command:
     url: "http://10.5.5.71:5000/api/tami4/boil"
 ```
 2. Now you can create a button card, and attach the new service.
-![Alt Text](https://raw.githubusercontent.com/Inframous/HomeApi/main/images/ha.jpg)
+<img src="https://raw.githubusercontent.com/Inframous/HomeApi/main/images/ha.jpg" alt="Alt Text" width="75%">
+
