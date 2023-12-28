@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3>Get Tami4Edge API Key</h3>
+<br>
+{% if not mobile_number %}
+<div class="main-box">
+    <form action="/site/tami4setup" method="post" id="enter_mobile">
+        <h5>1. Request API KEY</h5>
+        <p>Enter your phone number, you will recieve a verification SMS .</p>
+        <label for="inputField">Enter you phone number:</label>
+        <input type="text" id="inputField" name="mobileNumber" placeholder='{{ mobile_number if mobile_number != "" else "+9725xxxxxxxx" }}' required>
+        <br>
+        <br>
+        <button type="submit">Request API Key</button>
+    </form>
+</div>
+{% else %}
+
+<div class="main-box">
+    <form action="/api/tami4/send_otp" method="post">
+        <h5>2. Enter OTP</h5>
+        <p>You should have recieved a text message containing the OTP Code.</p>
+        <label for="inputField">Enter your OTP Code:</label>
+        <input type="text" id="inputField" name="otpCode" required>
+        <input type="hidden" name="mobileNumber" value='{{ mobile_number }}'>
+        <br>
+        <br>
+        <button type="submit">Send OTP</button>
+    </form>
+</div>
+{% endif %}
+{% endblock %}
