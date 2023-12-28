@@ -1,6 +1,6 @@
 #!/bin/bash
 
-PORT=8080
+PORT=6500 
 
 # Clone the repository
 git clone https://github.com/Inframous/HomeApi.git

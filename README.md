@@ -3,10 +3,11 @@ In this project, we will deploy a Flask based API for personal use.
 For the moment, its only ability is to send Tami4Edge machine a command to boil the water, thus being able to use in automations with Home Assistant or any other automation method via a GET request.
 
 ### Automatic Installation:
+The installation uses port 6500, for a different port, use manual installation method.
 1. Open up a terminal session and paste: 
-```curl -s https://raw.githubusercontent.com/Inframous/HomeApi/main/install.sh | bash```. You will need to select a port for the contrainer to run on.
-2. Point your browser to ```http://<docker_host_url>:<selected_port>/site/tami4setup``` to configure your API Key.
-  example url: ```http://192.168.1.10:8080/site/tami4setup```
+```curl -s https://raw.githubusercontent.com/Inframous/HomeApi/main/install.sh | bash```. 
+2. Point your browser to ```http://<docker_host_url>:6500/site/tami4setup``` to configure your API Key.
+  example url: ```http://192.168.1.10:6500/site/tami4setup```
   
 ### Manual Installation:
 To install this on a local Docker container:
@@ -16,9 +17,9 @@ To install this on a local Docker container:
 2. Build the Docker image:
 ```sudo docker build -t "homeapi' .```
 3. Launch the container:
-```sudo docker run -d -p 8080:5000 --restart always --name homeapi homeapi```
-4. Point your browser to ```http://<docker_host_url>:<selected_port>/site/tami4setup``` to configure your API Key.
-  example url: ```http://192.168.1.10:8080/site/tami4setup```
+```sudo docker run -d -p 6500:5000 --restart always --name homeapi homeapi```
+4. Point your browser to ```http://<docker_host_url>:6500/site/tami4setup``` to configure your API Key.
+  example url: ```http://192.168.1.10:6500/site/tami4setup```
 
 ### To use with Home Assistant
 1. Add the following to your ```configuration.yaml```:
@@ -31,4 +32,4 @@ rest_command:
 <img src="https://raw.githubusercontent.com/Inframous/HomeApi/main/images/ha.jpg" alt="Alt Text" width="75%">
 
 ### General Use
-1. Send a GET request to ```http://<docker_host_url>:<selected_port>/api/tami4/boil``` to tell your Tami4Edge device to start boiling water.
+1. Send a GET request to ```http://<docker_host_url>:6500/api/tami4/boil``` to tell your Tami4Edge device to start boiling water.
