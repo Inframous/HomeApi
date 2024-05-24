@@ -1,6 +1,7 @@
 # HomeApi - Personal Api for Home Assistant
 In this project, we will deploy a Flask based API for personal use.
-For the moment, its only ability is to send Tami4Edge machine a command to boil the water, thus being able to use in automations with Home Assistant or any other automation method via a GET request.
+For the moment, its only ability is to send Tami4Edge machine a command to boil the water, thus being able to use in automations with Home Assistant or any other automation method via a POST request.
+
 
 ### Automatic Installation:
 The installation uses port 6500, for a different port, use manual installation method.
@@ -32,4 +33,4 @@ rest_command:
 <img src="https://raw.githubusercontent.com/Inframous/HomeApi/main/images/ha.jpg" alt="Alt Text" width="75%">
 
 ### General Use
-1. Send a GET request to ```http://<docker_host_url>:6500/api/tami4/boil``` to tell your Tami4Edge device to start boiling water.
+1. Send a POST request to ```http://<docker_host_url>:6500/api/tami4/boil``` to tell your Tami4Edge device to start boiling water.

@@ -37,7 +37,7 @@ def send_otp():
 
 
 
-@app.route('/api/tami4/boil')
+@app.route('/api/tami4/boil', methods=['POST'])
 def tami_boil():
     if ApiKey.API_KEY == '':
         return jsonify(error='No Api Key configured. Point your browser to http://<host_ip>:<port>/site/tami4setup and follow the instructions'), 500
