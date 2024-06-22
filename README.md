@@ -18,9 +18,12 @@ To install this on a local Docker container:
 2. Build the Docker image:
 ```sudo docker build -t "homeapi' .```
 3. Launch the container:
-```sudo docker run -d -p 6500:5000 --restart always --name homeapi homeapi```
+```sudo docker run -d -v ./api_key:/app/Tami4/api_key -p 6500:5000 --restart always --name homeapi homeapi```
 4. Point your browser to ```http://<docker_host_url>:6500/site/tami4setup``` to configure your API Key.
   example url: ```http://192.168.1.10:6500/site/tami4setup```
+
+Note: The API Key is writting in a file in /app/Tami4/api_key.<br> 
+Bind a local folder to /app/Tami4/api_key in the container so you won't have to regenerate the api key every time you update or recreate the container. *This is being done in the `docker run` command in phase 3
 
 ### To use with Home Assistant
 1. Add the following to your ```configuration.yaml```:

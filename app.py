@@ -1,11 +1,12 @@
 import os
 from flask import Flask, jsonify, request, render_template, flash
-from Tami4 import ApiKey, Tami4Handler, Tami4KeyHandler
+from Tami4 import Tami4KeyHandler, Tami4Handler
+from Tami4.api_key.ApiKey import API_KEY
 app = Flask(__name__)
 app.secret_key = 'super secret key'
 
 ## Check for Tami4Edge API Key Configuration
-if ApiKey.API_KEY == '':
+if API_KEY == '':
     print('''WARNING!!
 No Api Key configured. 
 Point your browser to http://<host_ip>:<port>/site/tami4setup and follow the instructions')
@@ -13,7 +14,7 @@ Point your browser to http://<host_ip>:<port>/site/tami4setup and follow the ins
     
 @app.route('/')
 def hello_world():
-    return jsonify(message='Hello, World!')
+    return jsonify(message='Hello World! Point your browser to http://<host_ip>:<port>/site/tami4setup and follow the instructions')
 
 @app.route('/site/tami4setup', methods=['GET','POST'])
 def tami4setup():
@@ -37,9 +38,9 @@ def send_otp():
 
 
 
-@app.route('/api/tami4/boil', methods=['POST'])
+@app.route('/api/tami4/boil', methods=['GET','POST'])
 def tami_boil():
-    if ApiKey.API_KEY == '':
+    if API_KEY == '':
         return jsonify(error='No Api Key configured. Point your browser to http://<host_ip>:<port>/site/tami4setup and follow the instructions'), 500
     try:
         # Assuming tami4_actions.boil_water() may raise exceptions on error

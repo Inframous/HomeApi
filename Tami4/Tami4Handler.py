@@ -1,5 +1,6 @@
 from Tami4EdgeAPI import Tami4EdgeAPI
-from .ApiKey import API_KEY
+from .api_key.ApiKey import API_KEY 
+
 
 
 def boil_water():

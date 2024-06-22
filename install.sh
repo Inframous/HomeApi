@@ -8,7 +8,7 @@ cd HomeApi || exit
 sudo docker build -t "homeapi" .
 
 # Launch the container
-sudo docker run -d -p 6500:5000 --restart always --name homeapi homeapi
+sudo docker run -d -v ./api_key:/app/Tami4/api_key -p 6500:5000 --restart always --name homeapi homeapi
 
 
 echo 'Point your browser to http://docker_host_ip:6500/site/tami4setup to get your API Key and configure the connection.'
