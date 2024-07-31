@@ -1,5 +1,5 @@
 import os
-from flask import Flask, jsonify, request, render_template, flash
+from flask import Flask, jsonify, request, render_template, flash, redirect, url_for
 from Tami4 import Tami4KeyHandler, Tami4Handler
 from Tami4.api_key.ApiKey import API_KEY
 app = Flask(__name__)
@@ -29,9 +29,11 @@ def tami4setup():
         return render_template('tami_form.html', active_page=active_page, key_obtained=KEY_OBTAINED)
     
     if request.method == 'POST':
+        if API_KEY != '':
+            KEY_OBTAINED = True
         mobile_number = request.form['mobileNumber']
         Tami4KeyHandler.request_key(mobile_number)
-        return render_template('tami_form.html', active_page=active_page, mobile_number=mobile_number)
+        return render_template('tami_form.html', active_page=active_page, mobile_number=mobile_number, key_obtained=KEY_OBTAINED)
 
 @app.route('/api/tami4/send_otp', methods=['POST'])
 def send_otp():
@@ -40,7 +42,7 @@ def send_otp():
     print(f"Mobile: {mobile_number}, OTP:{otp_code}")
     Tami4KeyHandler.send_otp(otp_code, mobile_number)
     flash('Success! API Key configured successfully.')
-    return render_template('tami_form.html')
+    return redirect(url_for('home'))
 
 
 @app.route('/api/tami4/boil', methods=['POST'])
