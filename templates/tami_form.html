@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% if key_obtained == True %}
+<h3 style="text-align: center;">Tami4Edge Setup</h3>
+<div class="main-box" style="border: 2px solid #333; border-radius: 12px; padding: 20px; background-color: #e0e0e0; max-width: 600px; margin: auto; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+    <h5 style="font-weight: bold; color: #333; margin-bottom: 15px; text-align: center;">API Enabled.</h5>
+    <h6 style="font-weight: bold; color: #555; margin-bottom: 10px;">API Endpoints:</h6>
+    <div style="border: 1px solid #ccc; border-radius: 8px; background-color: #fff; padding: 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+        <p style="font-weight: bold; color: #333;">/api/tami4/boil:</p>
+        <p style="color: #555;">Will send Boil command to Tami4.</p>
+        
+        <p style="font-weight: bold; color: #333;">/api/tami4/get_drinks:</p>
+        <p style="color: #555;">Will return a list of your custom drinks.</p>
+        
+        <p style="font-weight: bold; color: #333;">/api/tami4/prepare/(drink_index):</p>
+        <p style="color: #555;">Will prepare your custom drink. (Choose by index)</p>
+        
+        <p style="font-weight: bold; color: #333;">/api/tami4/info:</p>
+        <p style="color: #555;">Will return information about the device.</p>
+    </div>
+</div>
+
+{% else %}
+    {% if not mobile_number %}
+    <h3 style="text-align: center;">Tami4Edge API Key Setup</h3>
+    <div class="main-box">
+        <form action="/site/tami4setup" method="post" id="enter_mobile">
+            <h5>1. Request API KEY</h5>
+            <p>Enter your phone number, you will recieve a verification SMS .</p>
+            <label for="inputField">Enter you phone number:</label>
+            <input type="text" id="inputField" name="mobileNumber" placeholder='+9725xxxxxxxx' required>
+            <br>
+            <br>
+            <button type="submit">Request API Key</button>
+        </form>
+    </div>
+    {% else %}
+
+    <div class="main-box">
+        <form action="/api/tami4/send_otp" method="post">
+            <h5>2. Enter OTP</h5>
+            <p>You should have recieved a text message containing the OTP Code.</p>
+            <label for="inputField">Enter your OTP Code:</label>
+            <input type="text" id="inputField" name="otpCode" required>
+            <input type="hidden" name="mobileNumber" value='{{ mobile_number }}'>
+            <br>
+            <br>
+            <button type="submit">Send OTP</button>
+        </form>
+    </div>
+    {% endif %}
+{% endif %}
+{% endblock %}

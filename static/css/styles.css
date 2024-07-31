@@ -1,0 +1,161 @@
+/* Add a black background color to the top navigation */
+.topnav {
+    background-color: #222;
+    overflow: hidden;
+    border-bottom: 4px solid #ff5500;
+    }
+    
+    /* Style the links inside the navigation bar */
+    .topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 16px;
+    transition: all 0.2s ease;
+    }
+    
+    /* Change the color of links on hover */
+    .topnav a:hover {
+    background-color: #ff5500;
+    color: #fff;
+    }
+    
+    /* Add a color to the active/current link */
+    .topnav a.active {
+    background-color: #ff5500;
+    color: #fff;
+    }
+    
+    .main-box {
+    margin: 20px auto;
+    max-width: 1200px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+    }
+    
+    /* .column {
+    width: 50%;
+    padding: 0 10px;
+    box-sizing: border-box;
+    }
+     */
+    .clearfix {
+    clear: both;
+    }
+    
+    .boxed-list {
+    border: 1px solid #ddd;
+    padding: 20px;
+    transition: all 0.2s ease;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    }
+    
+    .boxed-list li {
+    list-style-type: none;
+    }
+    
+    .boxed-list:hover {
+    background-color: #f2f2f2;
+    }
+    
+    .boxed-table {
+    border-collapse: collapse;
+    width: 100%;
+    transition: all 0.2s ease;
+    }
+    
+  .boxed-table th, .boxed-table td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+    word-wrap: break-word;
+  }
+  
+    .boxed-table th {
+    background-color: #ff5500;
+    color: #fff;
+    }
+    
+    table {
+    border-collapse: collapse;
+    width: 100%;
+    
+    }
+    
+    th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    /* max-width: 400px; */
+    min-width: 50px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    
+    }
+    
+    tr:hover {
+    background-color: #f2f2f2;
+    cursor: pointer;
+    }
+    
+    tr.selected {
+    background-color: #ddd;
+    }
+    
+    /* .messages {
+    background-color: #ff5500;
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+    } */
+    
+    input[type="submit"],
+    button[type="submit"] {
+    border: none;
+    background-color: #ff5500;
+    color: #fff;
+    padding: 5px 24px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin: 5px;
+    }
+    
+  
+    input[type="submit"]:hover,
+    button[type="submit"]:hover {
+    background-color: #e44a00;
+    }
+    
+    hr {
+    border-color: #ff5500;
+    }
+  
+  
+    .main-box {
+    /* display: flex; */
+    flex-wrap: wrap;
+    overflow-x: auto;
+    margin: 0 auto; /* center the div */
+  margin-top: 30px;
+    }
+  
+  .column {
+    flex-basis: calc(50% - 20px);
+    padding: 10px;
+   }
+   
+   td:nth-child(2),
+   th:nth-child(2) {
+    max-width: 20px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
